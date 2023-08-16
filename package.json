@@ -8,8 +8,10 @@
     "start": "node src/server",
     "dev": "nodemon src/server",
     "reset:migrate": "node ./src/tests/testMigrate",
+    "reset:test": "node ./src/tests/postTest",
     "test": "jest --detectOpenHandles ",
-    "pretest": "npm run reset:migrate"
+    "pretest": "npm run reset:migrate",
+    "posttest": "npm run reset:test"
   },
   "keywords": [],
   "author": "",

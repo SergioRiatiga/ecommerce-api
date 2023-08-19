@@ -3,7 +3,10 @@ const Product = require('../models/Product');
 const Category = require('../models/Category');
 
 const getAll = catchError(async (req, res) => {
-  const result = await Product.findAll({include:[Category]})
+  const {category} = req.query
+  const where = {}
+  if(category) where.categoryId = category
+  const result = await Product.findAll({include:[Category],where})
   return res.json(result)
 })
 const create = catchError(async (req, res) => {

@@ -5,7 +5,7 @@ const Product = require('../models/Product');
 const Category = require('../models/Category');
 
 const getAll = catchError(async (req, res) => {
-  const userId = req.userI.id
+  const userId = req.user.id
   const result = await Purchase.findAll({
     where:{userId},
     include:[

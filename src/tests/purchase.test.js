@@ -43,7 +43,7 @@ test('POST ->"URL_BASE", should return  status code 201, res.body.quantity === b
     .post(URL_BASE)
     .set('Authorization', `Bearer ${TOKEN}`)
   expect(res.status).toBe(201)
-  expect(res.body.quantity).toBe(cartBody.quantity)
+  expect(res.body[0].quantity).toBe(cartBody.quantity)
 })
 
 test('GET -> "URL_BASE", should return status code 200, res.body.length === 1', async () => {

@@ -95,19 +95,18 @@ test('PUT -> "URL_BASE/:id", should return status code 200, res.body.title === p
 
 test('POST -> "URL_BASE/:id/images", should return status code 200, res.body.length === 1', async () => {
   const imageBody = {
-    url: "lorem",
-    filename: "lorem"
+    url: 'lorem',
+    filename: 'lorem'
   }
   image = await ProductImg.create(imageBody)
   const res = await request(app)
     .post(`${URL_BASE}/${productId}/images`)
     .send([image.id])
-    .set("Authorization", `Bearer ${TOKEN}`)
+    .set('Authorization', `Bearer ${TOKEN}`)
   expect(res.status).toBe(200)
   expect(res.body).toBeDefined()
   expect(res.body).toHaveLength(1)
 })
-
 
 test('DELETE -> "URL_BASE/:id", should return status code 204', async () => {
   const res  = await request(app)

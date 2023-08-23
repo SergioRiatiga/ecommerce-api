@@ -56,6 +56,8 @@ test('GET -> "URL_BASE", should return status code 200, res.body.length === 1', 
   expect(res.body[0].product).toBeDefined()
   expect(res.body[0].productId).toBe(product.id)
   expect(res.body[0].product.id).toBe(product.id)
+  expect(res.body[0].product.productImgs).toBeDefined()
+  expect(res.body[0].product.productImgs).toHaveLength(0)
 })
 
 test('PUT -> "URL_BASE/:id",should return status code 200, res.body.quantity === bodyUpdate.quantity', async () => {
